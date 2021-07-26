@@ -37,6 +37,7 @@ RUN apt update -qq && apt install -qq -y --no-install-recommends \
         libtcmalloc-minimal4 \
         make \
         openjdk-8-jdk-headless \
+        ansible \
         openssh-client \
         patch \
         python3 \
@@ -51,13 +52,6 @@ RUN apt update -qq && apt install -qq -y --no-install-recommends \
         zip \
     && gem install bundler \
     && rm -rf /var/lib/apt/lists/*;
-
-# Install Ansible Vault
-RUN apt-get install -y \
-  ansible \
-  --no-install-recommends
-
-RUN apt-get clean
 
 # install nodejs and yarn packages from nodesource
 RUN curl -sL https://deb.nodesource.com/setup_${NODE_VERSION} | bash - \
