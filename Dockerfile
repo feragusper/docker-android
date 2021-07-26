@@ -53,14 +53,8 @@ RUN apt update -qq && apt install -qq -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*;
 
 # Install Ansible Vault
-
-RUN apt-add-repository ppa:openjdk-r/ppa
-RUN apt-add-repository ppa:ansible/ansible
-RUN apt-get update
-
 RUN apt-get install -y \
   ansible \
-  openjdk-8-jdk \
   --no-install-recommends
 
 RUN apt-get clean
